@@ -33,6 +33,7 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupBarButtonItem()
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
         // Default theme settings.
@@ -58,34 +59,33 @@ class MainViewController: UITableViewController {
             icon: "CloudLogicAPIIcon", storyboard: "CloudLogicAPI")
         
         demoFeatures.append(demoFeature)
+        
+        demoFeature = DemoFeature.init(
+            name: NSLocalizedString("Tutorial",
+                                    comment: "Label for tutorial view"),
+            detail: NSLocalizedString("See the app tutorial",
+                                      comment: "Tutorial app."),
+            icon: "UserIcon", storyboard: "AppTutorial")
+        
+        demoFeatures.append(demoFeature)
     }
 
     
     
     func setupBarButtonItem() {
-            navigationItem.rightBarButtonItem = loginButton
-            navigationItem.rightBarButtonItem!.target = self
+        navigationItem.rightBarButtonItem = loginButton
+        navigationItem.rightBarButtonItem!.target = self
         
-            if (AWSSignInManager.sharedInstance().isLoggedIn) {
-                navigationItem.rightBarButtonItem!.title = NSLocalizedString("Sign-Out", comment: "Label for the logout button.")
-                navigationItem.rightBarButtonItem!.action = #selector(MainViewController.handleLogout)
-            }
-            if !(AWSSignInManager.sharedInstance().isLoggedIn) {
-                navigationItem.rightBarButtonItem!.title = NSLocalizedString("Sign-In", comment: "Label for the login button.")
-                navigationItem.rightBarButtonItem!.action = #selector(goToLogin)
-            }
-        
-            //@Andre
-        
-            //create and append "Tutorial" button on navbar
-            navigationItem.leftBarButtonItem = tutorialButton
-            navigationItem.leftBarButtonItem!.target = self
-        
-            navigationItem.leftBarButtonItem!.title = NSLocalizedString("Tutorial", comment: "App tutorial.")
-            navigationItem.leftBarButtonItem!.action = #selector(goToTutorial)
+        if (AWSSignInManager.sharedInstance().isLoggedIn) {
+            navigationItem.rightBarButtonItem!.title = NSLocalizedString("Sign-Out", comment: "Label for the logout button.")
+            navigationItem.rightBarButtonItem!.action = #selector(MainViewController.handleLogout)
+        }
+        if !(AWSSignInManager.sharedInstance().isLoggedIn) {
+            navigationItem.rightBarButtonItem!.title = NSLocalizedString("Sign-In", comment: "Label for the login button.")
+            navigationItem.rightBarButtonItem!.action = #selector(goToLogin)
+        }
         
     }
-    
     
 
     // MARK: - UITableViewController delegates
@@ -104,6 +104,17 @@ class MainViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //@Andre
+        if(indexPath.count == 2) {
+            
+            let tutorialStoryboard = UIStoryboard(name: "AppTutorial", bundle: nil)
+            let tutorialController = tutorialStoryboard.instantiateViewController(withIdentifier: "AppTutorial")
+            
+            self.present(tutorialController, animated: true, completion: nil)
+            return
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
         let demoFeature = demoFeatures[indexPath.row]
         let storyboard = UIStoryboard(name: demoFeature.storyboard, bundle: nil)
@@ -129,14 +140,6 @@ class MainViewController: UITableViewController {
         } else {
             assert(false)
         }
-    }
-    
-    //@Andre
-    //go to tutorial storyboard
-    func goToTutorial() {
-        let tutorialStoryboard = UIStoryboard(name: "Tutorial", bundle: nil)
-        let tutorialController = tutorialStoryboard.instantiateViewController(withIdentifier: "Tutorial")
-        navigationController?.pushViewController(tutorialController, animated: true)
     }
 }
 

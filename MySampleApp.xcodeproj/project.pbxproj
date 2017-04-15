@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6547FC4E1EA272A500176F40 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6547FC4D1EA272A500176F40 /* Tutorial.storyboard */; };
-		6547FC501EA272DF00176F40 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6547FC4F1EA272DF00176F40 /* TutorialViewController.swift */; };
+		656D25051EA29FEF00B5C2FD /* AppTutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656D25041EA29FEF00B5C2FD /* AppTutorial.storyboard */; };
+		656D25071EA2A00300B5C2FD /* AppTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D25061EA2A00300B5C2FD /* AppTutorialViewController.swift */; };
 		E7A30F0401C26FE400000000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD70E294DC5B41200000000 /* Main.storyboard */; };
 		E7A30F0404A70B6700000000 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E29F37BB8FD00000000 /* libz.tbd */; };
 		E7A30F04052B592600000000 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E29393AE9F300000000 /* libsqlite3.tbd */; };
@@ -64,6 +64,7 @@
 		E7A30F04F4F203A500000000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E2937F95C0E00000000 /* Foundation.framework */; };
 		E7A30F04F5A1364B00000000 /* CloudLogicAPIInvokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29327E36D400000000 /* CloudLogicAPIInvokeViewController.swift */; };
 		E7A30F04F8CFE57400000000 /* AWSConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29FA4601DE00000000 /* AWSConfiguration.swift */; };
+		E95EC4AC067AAA30AAF9D1E9 /* Pods_MySampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDAB0CDED485962D46D8327 /* Pods_MySampleApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -142,8 +143,11 @@
 		1DD70E29FA4601DE00000000 /* AWSConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AWSConfiguration.swift; path = MySampleApp/AmazonAws/AWSConfiguration.swift; sourceTree = SOURCE_ROOT; };
 		1DD70E29FE4643A800000000 /* UserPoolForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPoolForgotPasswordViewController.swift; path = MySampleApp/App/SignIn/UserPools/UserPoolForgotPasswordViewController.swift; sourceTree = SOURCE_ROOT; };
 		1DD70E29FF8881DF00000000 /* AWSFacebookSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSFacebookSignIn.framework; path = MySampleApp/AmazonAws/AWSFacebookSignIn.framework; sourceTree = "<group>"; };
-		6547FC4D1EA272A500176F40 /* Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Tutorial.storyboard; path = MySampleApp/App/Tutorial/Tutorial.storyboard; sourceTree = SOURCE_ROOT; };
-		6547FC4F1EA272DF00176F40 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialViewController.swift; path = MySampleApp/App/Tutorial/TutorialViewController.swift; sourceTree = SOURCE_ROOT; };
+		3137C1B1E1C9DF2C72AC1B85 /* Pods-MySampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySampleApp/Pods-MySampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		656D25041EA29FEF00B5C2FD /* AppTutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AppTutorial.storyboard; path = MySampleApp/App/Tutorial/AppTutorial.storyboard; sourceTree = SOURCE_ROOT; };
+		656D25061EA2A00300B5C2FD /* AppTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppTutorialViewController.swift; path = MySampleApp/App/Tutorial/AppTutorialViewController.swift; sourceTree = SOURCE_ROOT; };
+		CE0BC50BA86CBECA74D3C950 /* Pods-MySampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySampleApp/Pods-MySampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		DEDAB0CDED485962D46D8327 /* Pods_MySampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,7 @@
 				E7A30F04DAD635FA00000000 /* AVFoundation.framework in Frameworks */,
 				E7A30F04E66C35F800000000 /* AVKit.framework in Frameworks */,
 				E7A30F042E6FA27B00000000 /* SafariServices.framework in Frameworks */,
+				E95EC4AC067AAA30AAF9D1E9 /* Pods_MySampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,8 +184,8 @@
 		6547FC4C1EA2721600176F40 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				6547FC4D1EA272A500176F40 /* Tutorial.storyboard */,
-				6547FC4F1EA272DF00176F40 /* TutorialViewController.swift */,
+				656D25041EA29FEF00B5C2FD /* AppTutorial.storyboard */,
+				656D25061EA2A00300B5C2FD /* AppTutorialViewController.swift */,
 			);
 			name = Tutorial;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				1DD70E298253F48400000000 /* UIKit.framework */,
 				1DD70E29393AE9F300000000 /* libsqlite3.tbd */,
 				1DD70E29F37BB8FD00000000 /* libz.tbd */,
+				DEDAB0CDED485962D46D8327 /* Pods_MySampleApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 				B401C979278E8EA300000000 /* Frameworks */,
 				B401C97937F2815400000000 /* MySampleApp */,
 				B401C97927A7613600000000 /* Products */,
+				BF73CA1530F9F37822026C8E /* Pods */,
 			);
 			name = mainGroup;
 			sourceTree = "<group>";
@@ -367,6 +374,15 @@
 			path = mysampleapp/demo/cloudlogic;
 			sourceTree = "<group>";
 		};
+		BF73CA1530F9F37822026C8E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3137C1B1E1C9DF2C72AC1B85 /* Pods-MySampleApp.debug.xcconfig */,
+				CE0BC50BA86CBECA74D3C950 /* Pods-MySampleApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -374,12 +390,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 218C37090000000000000001 /* Build configuration list for PBXNativeTarget "MySampleApp" */;
 			buildPhases = (
+				3E0243FBCF59ED3B0DF1B1B8 /* [CP] Check Pods Manifest.lock */,
 				E1F174220000000000000001 /* ShellScript */,
 				1870857F0000000000000000 /* Sources */,
 				4F426D880000000000000000 /* Frameworks */,
 				8A032D2C0000000000000000 /* Resources */,
 				FAF5FAC90000000000000000 /* Embed Frameworks */,
 				E1F174220000000000000000 /* ShellScript */,
+				1617C5E3BF9ADF42C0D87536 /* [CP] Embed Pods Frameworks */,
+				AE3ED94D8A97F0C8677A8C24 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -424,7 +443,7 @@
 			files = (
 				E7A30F04ED5B37F200000000 /* SignIn.storyboard in Resources */,
 				E7A30F04BFD7144A00000000 /* Launch Screen.storyboard in Resources */,
-				6547FC4E1EA272A500176F40 /* Tutorial.storyboard in Resources */,
+				656D25051EA29FEF00B5C2FD /* AppTutorial.storyboard in Resources */,
 				E7A30F04082E640300000000 /* Images.xcassets in Resources */,
 				E7A30F0413E6165E00000000 /* CloudLogicAPI.storyboard in Resources */,
 				E7A30F042D1824C600000000 /* UserIdentity.storyboard in Resources */,
@@ -437,6 +456,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1617C5E3BF9ADF42C0D87536 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MySampleApp/Pods-MySampleApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E0243FBCF59ED3B0DF1B1B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AE3ED94D8A97F0C8677A8C24 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MySampleApp/Pods-MySampleApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E1F174220000000000000000 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -476,7 +540,6 @@
 				E7A30F04F5A1364B00000000 /* CloudLogicAPIInvokeViewController.swift in Sources */,
 				E7A30F0448AFA2CE00000000 /* CloudLogicAPIOperationsViewController.swift in Sources */,
 				E7A30F04324D336900000000 /* SignInViewController.swift in Sources */,
-				6547FC501EA272DF00176F40 /* TutorialViewController.swift in Sources */,
 				E7A30F040AF195BB00000000 /* AWSAPI_41726X8Z8L_ResponseSchema.m in Sources */,
 				E7A30F04188E833C00000000 /* CloudLogicAPIFactory.swift in Sources */,
 				E7A30F04294E62AF00000000 /* UserPoolSignUpConfirmationViewController.swift in Sources */,
@@ -493,6 +556,7 @@
 				E7A30F0487F420F100000000 /* AWSAPI_41726X8Z8L_MytouristspiderbaconMobileHubClient.m in Sources */,
 				E7A30F042F31E15B00000000 /* AWSAPI_41726X8Z8L_RequestSchema.m in Sources */,
 				E7A30F044080A76300000000 /* APIPathSelectorViewController.swift in Sources */,
+				656D25071EA2A00300B5C2FD /* AppTutorialViewController.swift in Sources */,
 				E7A30F04B65551D800000000 /* UserPoolsIdentityProfile.swift in Sources */,
 				E7A30F04E583531000000000 /* UserIdentityViewController.swift in Sources */,
 				E7A30F04AE46436800000000 /* AWSMobileClient.swift in Sources */,
@@ -547,6 +611,7 @@
 		};
 		49524373386D956C00000001 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE0BC50BA86CBECA74D3C950 /* Pods-MySampleApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MySampleApp/MySampleApp.entitlements;
@@ -621,6 +686,7 @@
 		};
 		4952437346F3E10800000001 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3137C1B1E1C9DF2C72AC1B85 /* Pods-MySampleApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MySampleApp/MySampleApp.entitlements;
