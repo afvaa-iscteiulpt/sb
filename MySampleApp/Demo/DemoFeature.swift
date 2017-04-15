@@ -23,7 +23,7 @@ class DemoFeature: NSObject {
     init(name: String, detail: String, icon: String, storyboard: String) {
         self.displayName = name
         self.detailText = detail
-        self.icon = icon
+        self.icona = icon
         self.storyboard = storyboard
         super.init()
     }
