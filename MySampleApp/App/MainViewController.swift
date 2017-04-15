@@ -19,18 +19,20 @@ class MainViewController: UITableViewController {
     var demoFeatures: [DemoFeature] = []
     fileprivate let loginButton: UIBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
     
+    fileprivate let tutorialButton: UIBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
+    
     // MARK: - View lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if (AWSSignInManager.sharedInstance().isLoggedIn) {
-            self.setupRightBarButtonItem()
+            self.setupBarButtonItem()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupRightBarButtonItem()
+        self.setupBarButtonItem()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
         // Default theme settings.
@@ -59,11 +61,11 @@ class MainViewController: UITableViewController {
     }
 
     
-
-    func setupRightBarButtonItem() {
+    
+    func setupBarButtonItem() {
             navigationItem.rightBarButtonItem = loginButton
             navigationItem.rightBarButtonItem!.target = self
-            
+        
             if (AWSSignInManager.sharedInstance().isLoggedIn) {
                 navigationItem.rightBarButtonItem!.title = NSLocalizedString("Sign-Out", comment: "Label for the logout button.")
                 navigationItem.rightBarButtonItem!.action = #selector(MainViewController.handleLogout)
@@ -72,8 +74,20 @@ class MainViewController: UITableViewController {
                 navigationItem.rightBarButtonItem!.title = NSLocalizedString("Sign-In", comment: "Label for the login button.")
                 navigationItem.rightBarButtonItem!.action = #selector(goToLogin)
             }
+        
+            //@Andre
+        
+            //create and append "Tutorial" button on navbar
+            navigationItem.leftBarButtonItem = tutorialButton
+            navigationItem.leftBarButtonItem!.target = self
+        
+            navigationItem.leftBarButtonItem!.title = NSLocalizedString("Tutorial", comment: "App tutorial.")
+            navigationItem.leftBarButtonItem!.action = #selector(goToTutorial)
+        
     }
     
+    
+
     // MARK: - UITableViewController delegates
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,12 +123,20 @@ class MainViewController: UITableViewController {
         if (AWSSignInManager.sharedInstance().isLoggedIn) {
             AWSSignInManager.sharedInstance().logout(completionHandler: {(result: Any?, authState: AWSIdentityManagerAuthState, error: Error?) in
                 self.navigationController!.popToRootViewController(animated: false)
-                self.setupRightBarButtonItem()
+                self.setupBarButtonItem()
             })
             // print("Logout Successful: \(signInProvider.getDisplayName)");
         } else {
             assert(false)
         }
+    }
+    
+    //@Andre
+    //go to tutorial storyboard
+    func goToTutorial() {
+        let tutorialStoryboard = UIStoryboard(name: "Tutorial", bundle: nil)
+        let tutorialController = tutorialStoryboard.instantiateViewController(withIdentifier: "Tutorial")
+        navigationController?.pushViewController(tutorialController, animated: true)
     }
 }
 
