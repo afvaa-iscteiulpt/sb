@@ -88,7 +88,15 @@ class SignInViewController: UIViewController {
     }
     
     func dimissController() {
-        self.dismiss(animated: true, completion: nil)
+        if(!tutorial) {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            let presentationViewController = self.presentingViewController
+            self.dismiss(animated: false, completion:
+                {
+                    presentationViewController!.dismiss(animated: true, completion: nil)
+            })
+        }
     }
     
     // MARK: - Utility Methods
@@ -130,6 +138,7 @@ extension SignInViewController: AWSSignInDelegate {
             self.showErrorDialog(signInProvider.identityProviderName, withError: error as! NSError)
             return
         }
+        
         self.dimissController()
     }
 }
