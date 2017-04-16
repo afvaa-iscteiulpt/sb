@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		65410AAD1EA4075100112522 /* UserPoolForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65410AAC1EA4075100112522 /* UserPoolForgotPasswordViewController.swift */; };
+		65410AAF1EA4178A00112522 /* Filters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65410AAE1EA4178A00112522 /* Filters.storyboard */; };
+		65410AB21EA417B000112522 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65410AB11EA417B000112522 /* FiltersViewController.swift */; };
+		65410AB51EA418B500112522 /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65410AB41EA418B500112522 /* EventDetails.storyboard */; };
+		65410AB71EA418D400112522 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65410AB61EA418D400112522 /* EventDetailsViewController.swift */; };
+		65410ABA1EA41B1300112522 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65410AB91EA41B1300112522 /* Map.storyboard */; };
+		65410ABC1EA41B2A00112522 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65410ABB1EA41B2A00112522 /* MapViewController.swift */; };
 		656D25051EA29FEF00B5C2FD /* AppTutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656D25041EA29FEF00B5C2FD /* AppTutorial.storyboard */; };
 		656D25071EA2A00300B5C2FD /* AppTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D25061EA2A00300B5C2FD /* AppTutorialViewController.swift */; };
 		658527C31EA3AA36003D7CA4 /* AccountSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658527C21EA3AA36003D7CA4 /* AccountSettings.storyboard */; };
@@ -142,6 +148,12 @@
 		1DD70E29FF8881DF00000000 /* AWSFacebookSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSFacebookSignIn.framework; path = MySampleApp/AmazonAws/AWSFacebookSignIn.framework; sourceTree = "<group>"; };
 		3137C1B1E1C9DF2C72AC1B85 /* Pods-MySampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySampleApp/Pods-MySampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		65410AAC1EA4075100112522 /* UserPoolForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPoolForgotPasswordViewController.swift; path = MySampleApp/App/SignIn/UserPools/UserPoolForgotPasswordViewController.swift; sourceTree = SOURCE_ROOT; };
+		65410AAE1EA4178A00112522 /* Filters.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Filters.storyboard; path = MySampleApp/App/Filters/Filters.storyboard; sourceTree = SOURCE_ROOT; };
+		65410AB11EA417B000112522 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FiltersViewController.swift; path = MySampleApp/App/Filters/FiltersViewController.swift; sourceTree = SOURCE_ROOT; };
+		65410AB41EA418B500112522 /* EventDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EventDetails.storyboard; path = MySampleApp/App/EventDetails/EventDetails.storyboard; sourceTree = SOURCE_ROOT; };
+		65410AB61EA418D400112522 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailsViewController.swift; path = MySampleApp/App/EventDetails/EventDetailsViewController.swift; sourceTree = SOURCE_ROOT; };
+		65410AB91EA41B1300112522 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Map.storyboard; path = MySampleApp/App/Map/Map.storyboard; sourceTree = SOURCE_ROOT; };
+		65410ABB1EA41B2A00112522 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = MySampleApp/App/Map/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		656D25041EA29FEF00B5C2FD /* AppTutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AppTutorial.storyboard; path = MySampleApp/App/Tutorial/AppTutorial.storyboard; sourceTree = SOURCE_ROOT; };
 		656D25061EA2A00300B5C2FD /* AppTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppTutorialViewController.swift; path = MySampleApp/App/Tutorial/AppTutorialViewController.swift; sourceTree = SOURCE_ROOT; };
 		658527C21EA3AA36003D7CA4 /* AccountSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AccountSettings.storyboard; path = "MySampleApp/App/Account Settings/AccountSettings.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -181,6 +193,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65410AB01EA4179400112522 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				65410AAE1EA4178A00112522 /* Filters.storyboard */,
+				65410AB11EA417B000112522 /* FiltersViewController.swift */,
+			);
+			name = Filters;
+			sourceTree = "<group>";
+		};
+		65410AB31EA4189100112522 /* EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				65410AB41EA418B500112522 /* EventDetails.storyboard */,
+				65410AB61EA418D400112522 /* EventDetailsViewController.swift */,
+			);
+			name = EventDetails;
+			sourceTree = "<group>";
+		};
+		65410AB81EA41AFE00112522 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				65410AB91EA41B1300112522 /* Map.storyboard */,
+				65410ABB1EA41B2A00112522 /* MapViewController.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		6547FC4C1EA2721600176F40 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,9 +246,12 @@
 				1DD70E29F69B52E600000000 /* Launch Screen.storyboard */,
 				1DD70E294DC5B41200000000 /* Main.storyboard */,
 				1DD70E2974B7A38400000000 /* MainViewController.swift */,
-				658527C11EA3AA14003D7CA4 /* Account Settings */,
 				6547FC4C1EA2721600176F40 /* Tutorial */,
 				B401C9794DB815D000000000 /* SignIn */,
+				658527C11EA3AA14003D7CA4 /* Account Settings */,
+				65410AB01EA4179400112522 /* Filters */,
+				65410AB31EA4189100112522 /* EventDetails */,
+				65410AB81EA41AFE00112522 /* Map */,
 				B401C979486BADB800000000 /* SupportingFiles */,
 				B401C97950F354A800000000 /* Utility */,
 			);
@@ -441,14 +483,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7A30F04ED5B37F200000000 /* SignIn.storyboard in Resources */,
+				65410AB51EA418B500112522 /* EventDetails.storyboard in Resources */,
 				E7A30F04BFD7144A00000000 /* Launch Screen.storyboard in Resources */,
 				656D25051EA29FEF00B5C2FD /* AppTutorial.storyboard in Resources */,
 				E7A30F04082E640300000000 /* Images.xcassets in Resources */,
+				65410ABA1EA41B1300112522 /* Map.storyboard in Resources */,
 				E7A30F0413E6165E00000000 /* CloudLogicAPI.storyboard in Resources */,
 				E7A30F04ABCC0F8700000000 /* UserPools.storyboard in Resources */,
 				E7A30F0462437B1500000000 /* AWSFacebookSignInResources.bundle in Resources */,
 				E7A30F0401C26FE400000000 /* Main.storyboard in Resources */,
 				658527C31EA3AA36003D7CA4 /* AccountSettings.storyboard in Resources */,
+				65410AAF1EA4178A00112522 /* Filters.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +585,8 @@
 				E7A30F04F5A1364B00000000 /* CloudLogicAPIInvokeViewController.swift in Sources */,
 				E7A30F0448AFA2CE00000000 /* CloudLogicAPIOperationsViewController.swift in Sources */,
 				E7A30F04324D336900000000 /* SignInViewController.swift in Sources */,
+				65410AB21EA417B000112522 /* FiltersViewController.swift in Sources */,
+				65410AB71EA418D400112522 /* EventDetailsViewController.swift in Sources */,
 				E7A30F040AF195BB00000000 /* AWSAPI_41726X8Z8L_ResponseSchema.m in Sources */,
 				E7A30F04188E833C00000000 /* CloudLogicAPIFactory.swift in Sources */,
 				E7A30F04294E62AF00000000 /* UserPoolSignUpConfirmationViewController.swift in Sources */,
@@ -558,6 +605,7 @@
 				E7A30F044080A76300000000 /* APIPathSelectorViewController.swift in Sources */,
 				656D25071EA2A00300B5C2FD /* AppTutorialViewController.swift in Sources */,
 				E7A30F04B65551D800000000 /* UserPoolsIdentityProfile.swift in Sources */,
+				65410ABC1EA41B2A00112522 /* MapViewController.swift in Sources */,
 				E7A30F04AE46436800000000 /* AWSMobileClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

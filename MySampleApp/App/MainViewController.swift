@@ -23,7 +23,7 @@ class MainViewController: UITableViewController {
         
         //if a new user show tutorial
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if !launchedBefore  {
+        if (!launchedBefore)  {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             
             let storyboard = UIStoryboard(name: "AppTutorial", bundle: nil)
@@ -32,9 +32,7 @@ class MainViewController: UITableViewController {
             self.present(viewController2, animated: false, completion: nil)
         }
         
-        print("ENTREI NA MAIN VIEW")
         self.setupLoginAccountSettingsItem()
-
     }
     
     override func viewDidLoad() {
@@ -75,9 +73,35 @@ class MainViewController: UITableViewController {
         
         demoFeatures.append(demoFeature)
         
+        demoFeature = DemoFeature.init(
+            name: NSLocalizedString("Filters",
+                                    comment: "Events filters"),
+            detail: NSLocalizedString("See the app filters",
+                                      comment: "Filters."),
+            icon: "UserIcon", storyboard: "Filters", type: "spiderbacon", from: "")
+        
+        demoFeatures.append(demoFeature)
+        
+        demoFeature = DemoFeature.init(
+            name: NSLocalizedString("Event details",
+                                    comment: "Events details"),
+            detail: NSLocalizedString("See the app event details",
+                                      comment: "Events Details."),
+            icon: "UserIcon", storyboard: "EventDetails", type: "spiderbacon", from: "")
+        
+        demoFeatures.append(demoFeature)
+        
+        demoFeature = DemoFeature.init(
+            name: NSLocalizedString("Map details",
+                                    comment: "Map event details"),
+            detail: NSLocalizedString("See the map event details",
+                                      comment: "Map event Details."),
+            icon: "UserIcon", storyboard: "Map", type: "spiderbacon", from: "")
+        
+        demoFeatures.append(demoFeature)
+        
         self.setupLoginAccountSettingsItem()
-        
-        
+    
     }
 
     func setupLoginAccountSettingsItem() {
@@ -119,9 +143,6 @@ class MainViewController: UITableViewController {
         
     }
     
-
-    // MARK: - UITableViewController delegates
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainViewCell")!
         let demoFeature = demoFeatures[indexPath.row]
@@ -157,12 +178,10 @@ class MainViewController: UITableViewController {
             return
         }
         
-        //@Andre
         if(demoFeature.type == "spiderbacon") {
             self.present(viewController, animated: true, completion: nil)
         } else {
             self.navigationController!.pushViewController(viewController, animated: true)
         }
-        
     }
 }
