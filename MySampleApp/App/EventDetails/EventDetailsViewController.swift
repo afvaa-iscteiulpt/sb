@@ -11,6 +11,14 @@ import UIKit
 class EventDetailsViewController: UIViewController {
 
     
+    @IBAction func goToMaps(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Map", bundle: nil)
+        let viewController2 = storyboard.instantiateViewController(withIdentifier: "Map") as! MapViewController
+        viewController2.coordinates = "2,2"
+        self.present(viewController2, animated: true, completion: nil)
+        
+    }
     @IBAction func backToMainView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

@@ -28,11 +28,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GzI-FD-fD1">
-                                <rect key="frame" x="170" y="20" width="34" height="30"/>
+                                <rect key="frame" x="170" y="20" width="34" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <action selector="backToMainView:" destination="Gvo-Yn-KKv" eventType="touchUpInside" id="qWg-1J-326"/>
+                                    <action selector="backEventsView:" destination="Gvo-Yn-KKv" eventType="touchUpInside" id="tje-cj-uGM"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -91,6 +91,7 @@ class MainViewController: UITableViewController {
         
         demoFeatures.append(demoFeature)
         
+        /*
         demoFeature = DemoFeature.init(
             name: NSLocalizedString("Map details",
                                     comment: "Map event details"),
@@ -99,6 +100,7 @@ class MainViewController: UITableViewController {
             icon: "UserIcon", storyboard: "Map", type: "spiderbacon", from: "")
         
         demoFeatures.append(demoFeature)
+        */
         
         self.setupLoginAccountSettingsItem()
     
