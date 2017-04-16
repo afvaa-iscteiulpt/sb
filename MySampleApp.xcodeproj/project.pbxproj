@@ -70,7 +70,6 @@
 		E7A30F04F4F203A500000000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E2937F95C0E00000000 /* Foundation.framework */; };
 		E7A30F04F5A1364B00000000 /* CloudLogicAPIInvokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29327E36D400000000 /* CloudLogicAPIInvokeViewController.swift */; };
 		E7A30F04F8CFE57400000000 /* AWSConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29FA4601DE00000000 /* AWSConfiguration.swift */; };
-		E95EC4AC067AAA30AAF9D1E9 /* Pods_MySampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEDAB0CDED485962D46D8327 /* Pods_MySampleApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -159,7 +158,6 @@
 		658527C21EA3AA36003D7CA4 /* AccountSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AccountSettings.storyboard; path = "MySampleApp/App/Account Settings/AccountSettings.storyboard"; sourceTree = SOURCE_ROOT; };
 		658527C41EA3AA6E003D7CA4 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountSettingsViewController.swift; path = "MySampleApp/App/Account Settings/AccountSettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		CE0BC50BA86CBECA74D3C950 /* Pods-MySampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySampleApp/Pods-MySampleApp.release.xcconfig"; sourceTree = "<group>"; };
-		DEDAB0CDED485962D46D8327 /* Pods_MySampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +184,6 @@
 				E7A30F04DAD635FA00000000 /* AVFoundation.framework in Frameworks */,
 				E7A30F04E66C35F800000000 /* AVKit.framework in Frameworks */,
 				E7A30F042E6FA27B00000000 /* SafariServices.framework in Frameworks */,
-				E95EC4AC067AAA30AAF9D1E9 /* Pods_MySampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +279,6 @@
 				1DD70E298253F48400000000 /* UIKit.framework */,
 				1DD70E29393AE9F300000000 /* libsqlite3.tbd */,
 				1DD70E29F37BB8FD00000000 /* libz.tbd */,
-				DEDAB0CDED485962D46D8327 /* Pods_MySampleApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
