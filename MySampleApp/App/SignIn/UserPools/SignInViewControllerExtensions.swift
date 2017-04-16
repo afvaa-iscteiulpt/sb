@@ -27,9 +27,13 @@ extension SignInViewController {
     }
     
     func handleUserPoolSignUp () {
+        print("createnewac")
         let storyboard = UIStoryboard(name: "UserPools", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "SignUp")
-            self.navigationController?.pushViewController(viewController, animated:true);
+        
+        //self.navigationController?.pushViewController(viewController, animated:true);
+        
+        self.present(viewController, animated: true, completion: nil)
     }
     
     func handleUserPoolForgotPassword () {

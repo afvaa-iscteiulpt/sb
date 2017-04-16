@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		656D25051EA29FEF00B5C2FD /* AppTutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656D25041EA29FEF00B5C2FD /* AppTutorial.storyboard */; };
 		656D25071EA2A00300B5C2FD /* AppTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D25061EA2A00300B5C2FD /* AppTutorialViewController.swift */; };
+		658527C31EA3AA36003D7CA4 /* AccountSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658527C21EA3AA36003D7CA4 /* AccountSettings.storyboard */; };
+		658527C51EA3AA6E003D7CA4 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658527C41EA3AA6E003D7CA4 /* AccountSettingsViewController.swift */; };
 		E7A30F0401C26FE400000000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD70E294DC5B41200000000 /* Main.storyboard */; };
 		E7A30F0404A70B6700000000 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E29F37BB8FD00000000 /* libz.tbd */; };
 		E7A30F04052B592600000000 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E29393AE9F300000000 /* libsqlite3.tbd */; };
@@ -146,6 +148,8 @@
 		3137C1B1E1C9DF2C72AC1B85 /* Pods-MySampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySampleApp/Pods-MySampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		656D25041EA29FEF00B5C2FD /* AppTutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AppTutorial.storyboard; path = MySampleApp/App/Tutorial/AppTutorial.storyboard; sourceTree = SOURCE_ROOT; };
 		656D25061EA2A00300B5C2FD /* AppTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppTutorialViewController.swift; path = MySampleApp/App/Tutorial/AppTutorialViewController.swift; sourceTree = SOURCE_ROOT; };
+		658527C21EA3AA36003D7CA4 /* AccountSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AccountSettings.storyboard; path = "MySampleApp/App/Account Settings/AccountSettings.storyboard"; sourceTree = SOURCE_ROOT; };
+		658527C41EA3AA6E003D7CA4 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountSettingsViewController.swift; path = "MySampleApp/App/Account Settings/AccountSettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		CE0BC50BA86CBECA74D3C950 /* Pods-MySampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySampleApp/Pods-MySampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		DEDAB0CDED485962D46D8327 /* Pods_MySampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -190,6 +194,15 @@
 			name = Tutorial;
 			sourceTree = "<group>";
 		};
+		658527C11EA3AA14003D7CA4 /* Account Settings */ = {
+			isa = PBXGroup;
+			children = (
+				658527C21EA3AA36003D7CA4 /* AccountSettings.storyboard */,
+				658527C41EA3AA6E003D7CA4 /* AccountSettingsViewController.swift */,
+			);
+			name = "Account Settings";
+			sourceTree = "<group>";
+		};
 		B401C97926A75AB400000000 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +211,7 @@
 				1DD70E29F69B52E600000000 /* Launch Screen.storyboard */,
 				1DD70E294DC5B41200000000 /* Main.storyboard */,
 				1DD70E2974B7A38400000000 /* MainViewController.swift */,
+				658527C11EA3AA14003D7CA4 /* Account Settings */,
 				6547FC4C1EA2721600176F40 /* Tutorial */,
 				B401C9794DB815D000000000 /* SignIn */,
 				B401C979486BADB800000000 /* SupportingFiles */,
@@ -450,6 +464,7 @@
 				E7A30F04ABCC0F8700000000 /* UserPools.storyboard in Resources */,
 				E7A30F0462437B1500000000 /* AWSFacebookSignInResources.bundle in Resources */,
 				E7A30F0401C26FE400000000 /* Main.storyboard in Resources */,
+				658527C31EA3AA36003D7CA4 /* AccountSettings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +560,7 @@
 				E7A30F04294E62AF00000000 /* UserPoolSignUpConfirmationViewController.swift in Sources */,
 				E7A30F04E2F7CD9700000000 /* UserPoolMFAViewController.swift in Sources */,
 				E7A30F04729911A300000000 /* FacebookIdentityProfile.swift in Sources */,
+				658527C51EA3AA6E003D7CA4 /* AccountSettingsViewController.swift in Sources */,
 				E7A30F040C73222B00000000 /* AppDelegate.swift in Sources */,
 				E7A30F044877D4D600000000 /* UserPoolForgotPasswordViewController.swift in Sources */,
 				E7A30F0482EACF1100000000 /* DemoFeature.swift in Sources */,

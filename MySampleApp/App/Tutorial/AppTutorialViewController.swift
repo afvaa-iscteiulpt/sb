@@ -16,6 +16,8 @@ import UIKit
 
 class AppTutorialViewController: UIViewController {
 
+    //@IBOutlet weak var loginContainerView: UIView!
+
     @IBOutlet weak var labelTutorial: UILabel!
     @IBOutlet weak var pageControlTutorial: UIPageControl!
     var counterPage = 0
@@ -24,7 +26,10 @@ class AppTutorialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //self.loginContainerView.isHidden = true
+        //self.loginContainerView.alpha = 0
+        
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(AppTutorialViewController.handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(AppTutorialViewController.handleSwipes(_:)))
         
@@ -34,7 +39,7 @@ class AppTutorialViewController: UIViewController {
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
         
-        labelTutorial.text = "Page 0"
+        labelTutorial.text = "Page " + String(counterPage)
     }
     
     func handleSwipes(_ sender:UISwipeGestureRecognizer) {
@@ -117,7 +122,15 @@ class AppTutorialViewController: UIViewController {
         } else {
             print("Step 3 back")
             
+            /*
             //hide content login
+            UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                self.loginContainerView.alpha = 0
+            }, completion: { finished in
+                self.loginContainerView.isHidden = true
+            })
+            */
+            
         }
     }
     
@@ -125,8 +138,22 @@ class AppTutorialViewController: UIViewController {
         if(typeSwap == "front") {
             print("Step 4 front")
             
-            //show content login
+            let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SignIn")
+            self.present(viewController, animated: true, completion: nil)
             
+            //self.loginContainerView.isHidden = false
+            
+            /*
+            //show content login
+            UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+                self.loginContainerView.alpha = 1
+            }, completion: { finished in
+            
+            })
+            */
+         
+                       
         } else {
             print("Step 4 back")
         }

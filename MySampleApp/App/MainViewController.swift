@@ -47,7 +47,7 @@ class MainViewController: UITableViewController {
                 comment: "Label for demo menu option."),
             detail: NSLocalizedString("Enable user login with popular 3rd party providers.",
                 comment: "Description for demo menu option."),
-            icon: "UserIdentityIcon", storyboard: "UserIdentity")
+            icon: "UserIdentityIcon", storyboard: "UserIdentity", type: "aws")
         
         demoFeatures.append(demoFeature)
 
@@ -56,18 +56,51 @@ class MainViewController: UITableViewController {
                 comment: "Label for demo menu option."),
             detail: NSLocalizedString("Run business logic in the cloud without managing servers. Integrate functionality with your app using APIs.",
                 comment: "Description for demo menu option."),
-            icon: "CloudLogicAPIIcon", storyboard: "CloudLogicAPI")
+            icon: "CloudLogicAPIIcon", storyboard: "CloudLogicAPI", type: "aws")
+        
+        demoFeatures.append(demoFeature)
+        
+        //@Andre
+        demoFeature = DemoFeature.init(
+            name: NSLocalizedString("Tutorial beggin",
+                                    comment: "Label for tutorial view"),
+            detail: NSLocalizedString("See the app tutorial for new users",
+                                      comment: "Tutorial app."),
+            icon: "UserIcon", storyboard: "AppTutorial", type: "spiderbacon")
         
         demoFeatures.append(demoFeature)
         
         demoFeature = DemoFeature.init(
-            name: NSLocalizedString("Tutorial",
+            name: NSLocalizedString("Tutorial inside app",
                                     comment: "Label for tutorial view"),
-            detail: NSLocalizedString("See the app tutorial",
+            detail: NSLocalizedString("See the app tutorial for current users",
                                       comment: "Tutorial app."),
-            icon: "UserIcon", storyboard: "AppTutorial")
+            icon: "UserIcon", storyboard: "AppTutorial", type: "spiderbacon")
         
         demoFeatures.append(demoFeature)
+        
+        if (AWSSignInManager.sharedInstance().isLoggedIn) {
+            //account settings
+            demoFeature = DemoFeature.init(
+                name: NSLocalizedString("Account settings",
+                                        comment: "Label for account settings view"),
+                detail: NSLocalizedString("User account settings",
+                                          comment: "Tutorial app."),
+                icon: "UserIcon", storyboard: "AccountSettings", type: "spiderbacon")
+            
+            demoFeatures.append(demoFeature)
+        }
+        if !(AWSSignInManager.sharedInstance().isLoggedIn) {
+            demoFeature = DemoFeature.init(
+                name: NSLocalizedString("Sign in",
+                                        comment: "Label for sign in view"),
+                detail: NSLocalizedString("Sign in to app",
+                                          comment: "Sign in."),
+                icon: "UserIcon", storyboard: "SignIn", type: "spiderbacon")
+            
+            demoFeatures.append(demoFeature)
+        }
+
     }
 
     
@@ -75,6 +108,10 @@ class MainViewController: UITableViewController {
     func setupBarButtonItem() {
         navigationItem.rightBarButtonItem = loginButton
         navigationItem.rightBarButtonItem!.target = self
+        
+        //@Andre
+        //use on navbar events page
+        //mete um ou o outro icon
         
         if (AWSSignInManager.sharedInstance().isLoggedIn) {
             navigationItem.rightBarButtonItem!.title = NSLocalizedString("Sign-Out", comment: "Label for the logout button.")
@@ -105,24 +142,20 @@ class MainViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //@Andre
-        if(indexPath.count == 2) {
-            
-            let tutorialStoryboard = UIStoryboard(name: "AppTutorial", bundle: nil)
-            let tutorialController = tutorialStoryboard.instantiateViewController(withIdentifier: "AppTutorial")
-            
-            self.present(tutorialController, animated: true, completion: nil)
-            return
-        }
-        
         tableView.deselectRow(at: indexPath, animated: true)
         let demoFeature = demoFeatures[indexPath.row]
         let storyboard = UIStoryboard(name: demoFeature.storyboard, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: demoFeature.storyboard)
-        self.navigationController!.pushViewController(viewController, animated: true)
+        
+        //@Andre
+        if(demoFeature.type == "spiderbacon") {
+            self.present(viewController, animated: true, completion: nil)
+        } else {
+            self.navigationController!.pushViewController(viewController, animated: true)
+        }
+        
     }
 
-    
     func goToLogin() {
             print("Handling optional sign-in.")
             let loginStoryboard = UIStoryboard(name: "SignIn", bundle: nil)
@@ -131,6 +164,8 @@ class MainViewController: UITableViewController {
     }
     
     func handleLogout() {
+        print("ogout")
+        
         if (AWSSignInManager.sharedInstance().isLoggedIn) {
             AWSSignInManager.sharedInstance().logout(completionHandler: {(result: Any?, authState: AWSIdentityManagerAuthState, error: Error?) in
                 self.navigationController!.popToRootViewController(animated: false)
