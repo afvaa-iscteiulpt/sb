@@ -20,13 +20,15 @@ class DemoFeature: NSObject {
     var icon: String
     var storyboard: String
     var type: String
+    var from: String
     
-    init(name: String, detail: String, icon: String, storyboard: String, type: String) {
+    init(name: String, detail: String, icon: String, storyboard: String, type: String, from: String) {
         self.displayName = name
         self.detailText = detail
         self.icon = icon
         self.storyboard = storyboard
         self.type = type
+        self.from = from
         super.init()
     }
 }

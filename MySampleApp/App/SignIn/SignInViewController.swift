@@ -34,13 +34,35 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var rightHorizontalBar: UIView!
     @IBOutlet weak var orSignInWithLabel: UIView!
     
+    @IBOutlet weak var buttonBackToTutorial:UIButton?
+    
+    @IBAction func buttonBackToTutorial(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBOutlet weak var buttonSkip: UIButton!
+    @IBAction func skipToMain(_ sender: Any) {
+        let presentationViewController = self.presentingViewController
+        self.dismiss(animated: false, completion:
+            {
+                presentationViewController!.dismiss(animated: true, completion: nil)
+            })
+    }
+
+    var tutorial = false
+    
     var passwordAuthenticationCompletion: AWSTaskCompletionSource<AnyObject>?
     
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         print("Sign In Loading.")
+        
+        if(!tutorial) {
+            buttonSkip.isHidden = true
+        }
+        
+        print("Sign In Loading.")
 
                 // Facebook login permissions can be optionally set, but must be set
                 // before user authenticates.
@@ -79,9 +101,8 @@ class SignInViewController: UIViewController {
                 self.showErrorDialog(signInProvider.identityProviderName, withError: error as! NSError)
                 return
             }
-            DispatchQueue.main.async(execute: {
-                _ = self.navigationController?.popToRootViewController(animated: true)
-            })
+            
+            self.dimissController()
         })
     }
 
@@ -104,10 +125,11 @@ class SignInViewController: UIViewController {
 extension SignInViewController: AWSSignInDelegate {
     
     func onLogin(signInProvider: AWSSignInProvider, result: Any?, authState: AWSIdentityManagerAuthState, error: Error?) {
+        
         guard let _ = result else {
             self.showErrorDialog(signInProvider.identityProviderName, withError: error as! NSError)
             return
         }
-        _ = self.navigationController?.popToRootViewController(animated: true)
+        self.dimissController()
     }
 }

@@ -30,39 +30,68 @@ class UserPoolNewPasswordViewController: UIViewController {
     
     @IBAction func onUpdatePassword(_ sender: AnyObject) {
         guard let confirmationCodeValue = self.confirmationCode.text, !confirmationCodeValue.isEmpty else {
-            let alert = UIAlertController(title: "Password Field Empty",
-                                          message: "Please enter a password of your choice.",
+            let alert = UIAlertController(title: "Password/Confirmation code Field Empty",
+                                          message: "Please enter a confirmation code and password.",
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion:nil)
             
             return
         }
+        
+        guard let passwordValue = self.updatedPassword.text, !passwordValue.isEmpty else {
+            let alert = UIAlertController(title: "Password Field Empty",
+                                          message: "Please enter a valid password.",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion:nil)
+            
+            return
+        }
+
         //confirm forgot password with input from ui.
         _ = self.user?.confirmForgotPassword(confirmationCodeValue, password: self.updatedPassword.text!).continueWith(block: {[weak self] (task: AWSTask) -> AnyObject? in
+        
             guard let strongSelf = self else { return nil }
-            DispatchQueue.main.async(execute: { 
-                if let error = task.error as? NSError {
-                    let alert = UIAlertController(title: error.userInfo["__type"] as? String,
-                                                  message:error.userInfo["message"] as? String,
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    strongSelf.present(alert, animated: true, completion:nil)
+            if let error = task.error as? NSError {
+                
+                    DispatchQueue.main.async(execute: {
+                        let alert = UIAlertController(title: error.userInfo["__type"] as? String,
+                                                      message:error.userInfo["message"] as? String,
+                                                      preferredStyle: .alert)
+                        strongSelf.present(alert, animated: true, completion:nil)
+                    
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    });
+                
                 } else {
-                    let alert = UIAlertController(title: "Password Reset Complete",
-                                                  message: "Password Reset was completed successfully.",
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    strongSelf.present(alert, animated: true, completion:nil)
-                    _ = strongSelf.navigationController?.popToRootViewController(animated: true)
+                
+                    DispatchQueue.main.async(execute: {
+                        let alert = UIAlertController(title: "Password Reset Complete",
+                                                      message: "Password Reset was completed successfully.",
+                                                      preferredStyle: .alert)
+                        strongSelf.present(alert, animated: true, completion:nil)
+                        
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                            let presentationViewController = self?.presentingViewController
+                            strongSelf.dismiss(animated: false, completion:
+                                {
+                                    presentationViewController!.dismiss(animated: true, completion: nil)
+                            })
+                            
+                        }))
+                    });
                 }
-            })
+            
             return nil
         })
+        
+        
     }
     
     @IBAction func onCancel(_ sender: AnyObject) {
-        _ = self.navigationController?.popToRootViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+        //_ = self.navigationController?.popToRootViewController(animated: true)
     }
     
 }

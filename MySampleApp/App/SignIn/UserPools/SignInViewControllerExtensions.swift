@@ -27,19 +27,17 @@ extension SignInViewController {
     }
     
     func handleUserPoolSignUp () {
-        print("createnewac")
         let storyboard = UIStoryboard(name: "UserPools", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "SignUp")
-        
-        //self.navigationController?.pushViewController(viewController, animated:true);
-        
+    
         self.present(viewController, animated: true, completion: nil)
     }
     
     func handleUserPoolForgotPassword () {
         let storyboard = UIStoryboard(name: "UserPools", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "ForgotPassword")
-            self.navigationController?.pushViewController(viewController, animated:true);
+        
+        self.present(viewController, animated: true, completion: nil)
     }
 }
 
@@ -76,7 +74,7 @@ extension SignInViewController: AWSCognitoIdentityPasswordAuthentication {
                 let alert = UIAlertController(title: error.userInfo["__type"] as? String,
                                               message:error.userInfo["message"] as? String,
                                               preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                alert.addAction(UIAlertAction(title: "Error", style: .default, handler: nil))
                 self.present(alert, animated: true, completion:nil)
             })
         }
@@ -100,5 +98,6 @@ extension SignInViewController: AWSCognitoUserPoolsSignInHandler {
         }
         // set the task completion result as an object of AWSCognitoIdentityPasswordAuthenticationDetails with username and password that the app user provides
         self.passwordAuthenticationCompletion?.set(result: AWSCognitoIdentityPasswordAuthenticationDetails(username: username, password: password))
+
     }
 }

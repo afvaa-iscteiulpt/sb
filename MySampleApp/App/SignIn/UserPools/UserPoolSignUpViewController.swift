@@ -103,6 +103,7 @@ class UserPoolSignUpViewController: UIViewController {
     }
 
     @IBAction func onCancel(_ sender: AnyObject) {
-        _ = self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+        //_ = self.navigationController?.popViewController(animated: true)
     }
 }

@@ -16,20 +16,28 @@ import UIKit
 
 class AppTutorialViewController: UIViewController {
 
-    //@IBOutlet weak var loginContainerView: UIView!
-
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var labelTutorial: UILabel!
     @IBOutlet weak var pageControlTutorial: UIPageControl!
     var counterPage = 0
+    
+    var from: String = ""
     
     var typeSwap = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.loginContainerView.isHidden = true
-        //self.loginContainerView.alpha = 0
-        
+        if(from == "inside") {
+            
+            //put back button
+            self.backButton.isHidden = false
+            self.backButton.addTarget(self, action: #selector(self.backToMainView), for: .touchUpInside)
+            
+            //change pagecontrol width
+            pageControlTutorial.numberOfPages = pageControlTutorial.numberOfPages-1
+        }
+ 
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(AppTutorialViewController.handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(AppTutorialViewController.handleSwipes(_:)))
         
@@ -40,6 +48,11 @@ class AppTutorialViewController: UIViewController {
         view.addGestureRecognizer(rightSwipe)
         
         labelTutorial.text = "Page " + String(counterPage)
+    }
+    
+    func backToMainView(_ sender:Any) {
+        print("back to main view")
+        self.dismiss(animated: true, completion: nil)
     }
     
     func handleSwipes(_ sender:UISwipeGestureRecognizer) {
@@ -59,9 +72,10 @@ class AppTutorialViewController: UIViewController {
         }
         
         if (sender.direction == .left) {
-            print("Swipe Left")
             
-            if(counterPage != 4) {
+            print("Swipe Left")
+      
+            if(counterPage != pageControlTutorial.numberOfPages-1) {
                 counterPage+=1
                 pageControlTutorial.currentPage = counterPage
                 
@@ -121,39 +135,23 @@ class AppTutorialViewController: UIViewController {
             print("Step 3 front")
         } else {
             print("Step 3 back")
-            
-            /*
-            //hide content login
-            UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
-                self.loginContainerView.alpha = 0
-            }, completion: { finished in
-                self.loginContainerView.isHidden = true
-            })
-            */
-            
+            //never happens
         }
     }
     
     func stepFour() {
         if(typeSwap == "front") {
             print("Step 4 front")
+
+            //show content login
+            counterPage-=1
+            pageControlTutorial.currentPage = counterPage
             
             let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "SignIn")
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SignIn") as! SignInViewController
+            viewController.tutorial = true
             self.present(viewController, animated: true, completion: nil)
             
-            //self.loginContainerView.isHidden = false
-            
-            /*
-            //show content login
-            UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
-                self.loginContainerView.alpha = 1
-            }, completion: { finished in
-            
-            })
-            */
-         
-                       
         } else {
             print("Step 4 back")
         }

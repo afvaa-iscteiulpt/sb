@@ -33,10 +33,16 @@
                                 <color key="pageIndicatorTintColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.35450208189999999" green="0.66513693330000001" blue="0.98525410889999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAn-HP-5En">
+                                <rect key="frame" x="36" y="20" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BACK"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="JAn-HP-5En" id="qqD-j9-F0N"/>
                         <outlet property="labelTutorial" destination="MUx-Pb-THn" id="tke-ud-rqc"/>
                         <outlet property="pageControlTutorial" destination="xtU-UN-LWb" id="3HM-Bb-5vL"/>
                     </connections>

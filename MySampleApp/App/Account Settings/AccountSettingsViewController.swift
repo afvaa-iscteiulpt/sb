@@ -19,6 +19,9 @@ class AccountSettingsViewController: UIViewController {
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var userID: UILabel!
     
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,31 +55,15 @@ class AccountSettingsViewController: UIViewController {
     }
     
     func handleLogout() {
-        print("ogout")
-        
         if (AWSSignInManager.sharedInstance().isLoggedIn) {
             
             AWSSignInManager.sharedInstance().logout(completionHandler: {(result: Any?, authState: AWSIdentityManagerAuthState, error: Error?) in
-                
-                //TODO
-                //back to mainviewcontroller
-                //refresh mainviewcontroller icon navbar to login
-        
+            
+                self.dismiss(animated: true, completion: nil)
             })
 
         } else {
             
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

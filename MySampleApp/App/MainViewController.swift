@@ -17,22 +17,28 @@ import AWSMobileHubHelper
 class MainViewController: UITableViewController {
     
     var demoFeatures: [DemoFeature] = []
-    fileprivate let loginButton: UIBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
-    
-    fileprivate let tutorialButton: UIBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
-    
-    // MARK: - View lifecycle
-    
+ 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if (AWSSignInManager.sharedInstance().isLoggedIn) {
-            self.setupBarButtonItem()
+        
+        //if a new user show tutorial
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if !launchedBefore  {
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            
+            let storyboard = UIStoryboard(name: "AppTutorial", bundle: nil)
+            let viewController2 = storyboard.instantiateViewController(withIdentifier: "AppTutorial") as! AppTutorialViewController
+            viewController2.from = "new"
+            self.present(viewController2, animated: false, completion: nil)
         }
+        
+        print("ENTREI NA MAIN VIEW")
+        self.setupLoginAccountSettingsItem()
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupBarButtonItem()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
@@ -41,22 +47,12 @@ class MainViewController: UITableViewController {
         navigationController!.navigationBar.barTintColor = UIColor(red: 0xF5/255.0, green: 0x85/255.0, blue: 0x35/255.0, alpha: 1.0)
         navigationController!.navigationBar.tintColor = UIColor.white
 
-        
         var demoFeature = DemoFeature.init(
-            name: NSLocalizedString("User Sign-in",
-                comment: "Label for demo menu option."),
-            detail: NSLocalizedString("Enable user login with popular 3rd party providers.",
-                comment: "Description for demo menu option."),
-            icon: "UserIdentityIcon", storyboard: "UserIdentity", type: "aws")
-        
-        demoFeatures.append(demoFeature)
-
-        demoFeature = DemoFeature.init(
             name: NSLocalizedString("Cloud Logic",
                 comment: "Label for demo menu option."),
             detail: NSLocalizedString("Run business logic in the cloud without managing servers. Integrate functionality with your app using APIs.",
                 comment: "Description for demo menu option."),
-            icon: "CloudLogicAPIIcon", storyboard: "CloudLogicAPI", type: "aws")
+            icon: "CloudLogicAPIIcon", storyboard: "CloudLogicAPI", type: "aws", from: "")
         
         demoFeatures.append(demoFeature)
         
@@ -66,7 +62,7 @@ class MainViewController: UITableViewController {
                                     comment: "Label for tutorial view"),
             detail: NSLocalizedString("See the app tutorial for new users",
                                       comment: "Tutorial app."),
-            icon: "UserIcon", storyboard: "AppTutorial", type: "spiderbacon")
+            icon: "UserIcon", storyboard: "AppTutorial", type: "spiderbacon", from: "new")
         
         demoFeatures.append(demoFeature)
         
@@ -75,9 +71,25 @@ class MainViewController: UITableViewController {
                                     comment: "Label for tutorial view"),
             detail: NSLocalizedString("See the app tutorial for current users",
                                       comment: "Tutorial app."),
-            icon: "UserIcon", storyboard: "AppTutorial", type: "spiderbacon")
+            icon: "UserIcon", storyboard: "AppTutorial", type: "spiderbacon", from: "inside")
         
         demoFeatures.append(demoFeature)
+        
+        self.setupLoginAccountSettingsItem()
+        
+        
+    }
+
+    func setupLoginAccountSettingsItem() {
+        
+        var demoFeature: DemoFeature
+        
+        for (key, df) in demoFeatures.enumerated() {
+            if(df.storyboard == "AccountSettings" || df.storyboard == "SignIn") {
+                demoFeatures.remove(at: key)
+            }
+        }
+        
         
         if (AWSSignInManager.sharedInstance().isLoggedIn) {
             //account settings
@@ -86,7 +98,7 @@ class MainViewController: UITableViewController {
                                         comment: "Label for account settings view"),
                 detail: NSLocalizedString("User account settings",
                                           comment: "Tutorial app."),
-                icon: "UserIcon", storyboard: "AccountSettings", type: "spiderbacon")
+                icon: "UserIcon", storyboard: "AccountSettings", type: "spiderbacon", from: "")
             
             demoFeatures.append(demoFeature)
         }
@@ -96,30 +108,13 @@ class MainViewController: UITableViewController {
                                         comment: "Label for sign in view"),
                 detail: NSLocalizedString("Sign in to app",
                                           comment: "Sign in."),
-                icon: "UserIcon", storyboard: "SignIn", type: "spiderbacon")
+                icon: "UserIcon", storyboard: "SignIn", type: "spiderbacon", from: "")
             
             demoFeatures.append(demoFeature)
         }
-
-    }
-
-    
-    
-    func setupBarButtonItem() {
-        navigationItem.rightBarButtonItem = loginButton
-        navigationItem.rightBarButtonItem!.target = self
         
-        //@Andre
-        //use on navbar events page
-        //mete um ou o outro icon
-        
-        if (AWSSignInManager.sharedInstance().isLoggedIn) {
-            navigationItem.rightBarButtonItem!.title = NSLocalizedString("Sign-Out", comment: "Label for the logout button.")
-            navigationItem.rightBarButtonItem!.action = #selector(MainViewController.handleLogout)
-        }
-        if !(AWSSignInManager.sharedInstance().isLoggedIn) {
-            navigationItem.rightBarButtonItem!.title = NSLocalizedString("Sign-In", comment: "Label for the login button.")
-            navigationItem.rightBarButtonItem!.action = #selector(goToLogin)
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
         }
         
     }
@@ -145,7 +140,22 @@ class MainViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let demoFeature = demoFeatures[indexPath.row]
         let storyboard = UIStoryboard(name: demoFeature.storyboard, bundle: nil)
+        
         let viewController = storyboard.instantiateViewController(withIdentifier: demoFeature.storyboard)
+        
+        if(demoFeature.storyboard == "AppTutorial") {
+            let viewController2 = storyboard.instantiateViewController(withIdentifier: demoFeature.storyboard) as! AppTutorialViewController
+            viewController2.from = demoFeature.from
+            self.present(viewController2, animated: true, completion: nil)
+            return
+        }
+        
+        if(demoFeature.storyboard == "SignIn") {
+            let viewController2 = storyboard.instantiateViewController(withIdentifier: demoFeature.storyboard) as! SignInViewController
+            viewController2.tutorial = false
+            self.present(viewController2, animated: true, completion: nil)
+            return
+        }
         
         //@Andre
         if(demoFeature.type == "spiderbacon") {
@@ -154,33 +164,5 @@ class MainViewController: UITableViewController {
             self.navigationController!.pushViewController(viewController, animated: true)
         }
         
-    }
-
-    func goToLogin() {
-            print("Handling optional sign-in.")
-            let loginStoryboard = UIStoryboard(name: "SignIn", bundle: nil)
-            let loginController = loginStoryboard.instantiateViewController(withIdentifier: "SignIn")
-            navigationController?.pushViewController(loginController, animated: true)
-    }
-    
-    func handleLogout() {
-        print("ogout")
-        
-        if (AWSSignInManager.sharedInstance().isLoggedIn) {
-            AWSSignInManager.sharedInstance().logout(completionHandler: {(result: Any?, authState: AWSIdentityManagerAuthState, error: Error?) in
-                self.navigationController!.popToRootViewController(animated: false)
-                self.setupBarButtonItem()
-            })
-            // print("Logout Successful: \(signInProvider.getDisplayName)");
-        } else {
-            assert(false)
-        }
-    }
-}
-
-class FeatureDescriptionViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "Back", style: .plain, target: nil, action: nil)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65410AAD1EA4075100112522 /* UserPoolForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65410AAC1EA4075100112522 /* UserPoolForgotPasswordViewController.swift */; };
 		656D25051EA29FEF00B5C2FD /* AppTutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656D25041EA29FEF00B5C2FD /* AppTutorial.storyboard */; };
 		656D25071EA2A00300B5C2FD /* AppTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D25061EA2A00300B5C2FD /* AppTutorialViewController.swift */; };
 		658527C31EA3AA36003D7CA4 /* AccountSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658527C21EA3AA36003D7CA4 /* AccountSettings.storyboard */; };
@@ -23,7 +24,6 @@
 		E7A30F0413E6165E00000000 /* CloudLogicAPI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD70E2999E4ED1200000000 /* CloudLogicAPI.storyboard */; };
 		E7A30F04188E833C00000000 /* CloudLogicAPIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E298240137200000000 /* CloudLogicAPIFactory.swift */; };
 		E7A30F04294E62AF00000000 /* UserPoolSignUpConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E2942031D7A00000000 /* UserPoolSignUpConfirmationViewController.swift */; };
-		E7A30F042D1824C600000000 /* UserIdentity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD70E2904951E7600000000 /* UserIdentity.storyboard */; };
 		E7A30F042E6FA27B00000000 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E29367964E800000000 /* SafariServices.framework */; };
 		E7A30F042F31E15B00000000 /* AWSAPI_41726X8Z8L_RequestSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29A440519100000000 /* AWSAPI_41726X8Z8L_RequestSchema.m */; };
 		E7A30F04324D336900000000 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E2944E6C82700000000 /* SignInViewController.swift */; };
@@ -33,7 +33,6 @@
 		E7A30F04424AAC4700000000 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E29E40A6A3900000000 /* FBSDKCoreKit.framework */; };
 		E7A30F0442E2A2E300000000 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E29193CB50A00000000 /* SystemConfiguration.framework */; };
 		E7A30F04430AA69900000000 /* AWSMobileHubHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E29F7D9CF7500000000 /* AWSMobileHubHelper.framework */; };
-		E7A30F044877D4D600000000 /* UserPoolForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29FE4643A800000000 /* UserPoolForgotPasswordViewController.swift */; };
 		E7A30F0448AFA2CE00000000 /* CloudLogicAPIOperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29A505562C00000000 /* CloudLogicAPIOperationsViewController.swift */; };
 		E7A30F044A1A5EE400000000 /* UserPoolNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29D04B89AE00000000 /* UserPoolNewPasswordViewController.swift */; };
 		E7A30F0454CDE33B00000000 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E2974B7A38400000000 /* MainViewController.swift */; };
@@ -60,7 +59,6 @@
 		E7A30F04DAD635FA00000000 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E299E4B3A3400000000 /* AVFoundation.framework */; };
 		E7A30F04E235FF8300000000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E298253F48400000000 /* UIKit.framework */; };
 		E7A30F04E2F7CD9700000000 /* UserPoolMFAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E2953FB002400000000 /* UserPoolMFAViewController.swift */; };
-		E7A30F04E583531000000000 /* UserIdentityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29CC4FA9A000000000 /* UserIdentityViewController.swift */; };
 		E7A30F04E66C35F800000000 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E29B13BB5B600000000 /* AVKit.framework */; };
 		E7A30F04ED5B37F200000000 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD70E2937733C0F00000000 /* SignIn.storyboard */; };
 		E7A30F04F4F203A500000000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E2937F95C0E00000000 /* Foundation.framework */; };
@@ -86,7 +84,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1DD70E2904951E7600000000 /* UserIdentity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = UserIdentity.storyboard; path = MySampleApp/Demo/UserIdentity/UserIdentity.storyboard; sourceTree = SOURCE_ROOT; };
 		1DD70E291192D8AE00000000 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		1DD70E29193CB50A00000000 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1DD70E291DE85AD900000000 /* AWSFacebookSignInResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AWSFacebookSignInResources.bundle; path = MySampleApp/AmazonAws/AWSFacebookSignInResources.bundle; sourceTree = "<group>"; };
@@ -132,7 +129,6 @@
 		1DD70E29A505562C00000000 /* CloudLogicAPIOperationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudLogicAPIOperationsViewController.swift; path = MySampleApp/Demo/CloudLogic/CloudLogicAPIOperationsViewController.swift; sourceTree = SOURCE_ROOT; };
 		1DD70E29B13BB5B600000000 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		1DD70E29B623F95500000000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = MySampleApp/App/SupportingFiles/Info.plist; sourceTree = SOURCE_ROOT; };
-		1DD70E29CC4FA9A000000000 /* UserIdentityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserIdentityViewController.swift; path = MySampleApp/Demo/UserIdentity/UserIdentityViewController.swift; sourceTree = SOURCE_ROOT; };
 		1DD70E29D04B89AE00000000 /* UserPoolNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPoolNewPasswordViewController.swift; path = MySampleApp/App/SignIn/UserPools/UserPoolNewPasswordViewController.swift; sourceTree = SOURCE_ROOT; };
 		1DD70E29D388D93A00000000 /* APIPathSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIPathSelectorViewController.swift; path = MySampleApp/Demo/CloudLogic/APIPathSelectorViewController.swift; sourceTree = SOURCE_ROOT; };
 		1DD70E29E40A6A3900000000 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = MySampleApp/Sdk/Facebook/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -143,9 +139,9 @@
 		1DD70E29F7D9CF7500000000 /* AWSMobileHubHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSMobileHubHelper.framework; path = MySampleApp/AmazonAws/AWSMobileHubHelper.framework; sourceTree = "<group>"; };
 		1DD70E29F878D9CE00000000 /* AWSAPIGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSAPIGateway.framework; path = MySampleApp/Sdk/Aws/AWSAPIGateway.framework; sourceTree = "<group>"; };
 		1DD70E29FA4601DE00000000 /* AWSConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AWSConfiguration.swift; path = MySampleApp/AmazonAws/AWSConfiguration.swift; sourceTree = SOURCE_ROOT; };
-		1DD70E29FE4643A800000000 /* UserPoolForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPoolForgotPasswordViewController.swift; path = MySampleApp/App/SignIn/UserPools/UserPoolForgotPasswordViewController.swift; sourceTree = SOURCE_ROOT; };
 		1DD70E29FF8881DF00000000 /* AWSFacebookSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSFacebookSignIn.framework; path = MySampleApp/AmazonAws/AWSFacebookSignIn.framework; sourceTree = "<group>"; };
 		3137C1B1E1C9DF2C72AC1B85 /* Pods-MySampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySampleApp/Pods-MySampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		65410AAC1EA4075100112522 /* UserPoolForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPoolForgotPasswordViewController.swift; path = MySampleApp/App/SignIn/UserPools/UserPoolForgotPasswordViewController.swift; sourceTree = SOURCE_ROOT; };
 		656D25041EA29FEF00B5C2FD /* AppTutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AppTutorial.storyboard; path = MySampleApp/App/Tutorial/AppTutorial.storyboard; sourceTree = SOURCE_ROOT; };
 		656D25061EA2A00300B5C2FD /* AppTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppTutorialViewController.swift; path = MySampleApp/App/Tutorial/AppTutorialViewController.swift; sourceTree = SOURCE_ROOT; };
 		658527C21EA3AA36003D7CA4 /* AccountSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AccountSettings.storyboard; path = "MySampleApp/App/Account Settings/AccountSettings.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -326,8 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				1DD70E297CAD031600000000 /* SignInViewControllerExtensions.swift */,
-				1DD70E29FE4643A800000000 /* UserPoolForgotPasswordViewController.swift */,
 				1DD70E2953FB002400000000 /* UserPoolMFAViewController.swift */,
+				65410AAC1EA4075100112522 /* UserPoolForgotPasswordViewController.swift */,
 				1DD70E29D04B89AE00000000 /* UserPoolNewPasswordViewController.swift */,
 				1DD70E2942031D7A00000000 /* UserPoolSignUpConfirmationViewController.swift */,
 				1DD70E293E01D61400000000 /* UserPoolSignUpViewController.swift */,
@@ -357,20 +353,9 @@
 			children = (
 				B401C979F80AE39000000000 /* CloudLogic */,
 				1DD70E2965E2AF7000000000 /* DemoFeature.swift */,
-				B401C979C5CE069000000000 /* UserIdentity */,
 			);
 			name = Demo;
 			path = mysampleapp/demo;
-			sourceTree = "<group>";
-		};
-		B401C979C5CE069000000000 /* UserIdentity */ = {
-			isa = PBXGroup;
-			children = (
-				1DD70E2904951E7600000000 /* UserIdentity.storyboard */,
-				1DD70E29CC4FA9A000000000 /* UserIdentityViewController.swift */,
-			);
-			name = UserIdentity;
-			path = mysampleapp/demo/useridentity;
 			sourceTree = "<group>";
 		};
 		B401C979F80AE39000000000 /* CloudLogic */ = {
@@ -460,7 +445,6 @@
 				656D25051EA29FEF00B5C2FD /* AppTutorial.storyboard in Resources */,
 				E7A30F04082E640300000000 /* Images.xcassets in Resources */,
 				E7A30F0413E6165E00000000 /* CloudLogicAPI.storyboard in Resources */,
-				E7A30F042D1824C600000000 /* UserIdentity.storyboard in Resources */,
 				E7A30F04ABCC0F8700000000 /* UserPools.storyboard in Resources */,
 				E7A30F0462437B1500000000 /* AWSFacebookSignInResources.bundle in Resources */,
 				E7A30F0401C26FE400000000 /* Main.storyboard in Resources */,
@@ -552,6 +536,7 @@
 				E7A30F0455D0E2CA00000000 /* CloudLogicAPI.swift in Sources */,
 				E7A30F043E7948F300000000 /* UserPoolSignUpViewController.swift in Sources */,
 				E7A30F044A1A5EE400000000 /* UserPoolNewPasswordViewController.swift in Sources */,
+				65410AAD1EA4075100112522 /* UserPoolForgotPasswordViewController.swift in Sources */,
 				E7A30F04F5A1364B00000000 /* CloudLogicAPIInvokeViewController.swift in Sources */,
 				E7A30F0448AFA2CE00000000 /* CloudLogicAPIOperationsViewController.swift in Sources */,
 				E7A30F04324D336900000000 /* SignInViewController.swift in Sources */,
@@ -562,7 +547,6 @@
 				E7A30F04729911A300000000 /* FacebookIdentityProfile.swift in Sources */,
 				658527C51EA3AA6E003D7CA4 /* AccountSettingsViewController.swift in Sources */,
 				E7A30F040C73222B00000000 /* AppDelegate.swift in Sources */,
-				E7A30F044877D4D600000000 /* UserPoolForgotPasswordViewController.swift in Sources */,
 				E7A30F0482EACF1100000000 /* DemoFeature.swift in Sources */,
 				E7A30F04F8CFE57400000000 /* AWSConfiguration.swift in Sources */,
 				E7A30F04D322D26400000000 /* SignInViewControllerExtensions.swift in Sources */,
@@ -574,7 +558,6 @@
 				E7A30F044080A76300000000 /* APIPathSelectorViewController.swift in Sources */,
 				656D25071EA2A00300B5C2FD /* AppTutorialViewController.swift in Sources */,
 				E7A30F04B65551D800000000 /* UserPoolsIdentityProfile.swift in Sources */,
-				E7A30F04E583531000000000 /* UserIdentityViewController.swift in Sources */,
 				E7A30F04AE46436800000000 /* AWSMobileClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

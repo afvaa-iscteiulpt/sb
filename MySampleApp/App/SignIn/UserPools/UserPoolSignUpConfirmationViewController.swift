@@ -40,6 +40,7 @@ class UserPoolSignUpConfirmationViewController : UIViewController {
             self.present(alert, animated: true, completion:nil)
             return
         }
+        
         self.user?.confirmSignUp(self.confirmationCode.text!, forceAliasCreation: true).continueWith(block: {[weak self] (task: AWSTask) -> AnyObject? in
             guard let strongSelf = self else { return nil }
             DispatchQueue.main.async(execute: { 
@@ -49,17 +50,29 @@ class UserPoolSignUpConfirmationViewController : UIViewController {
                                                   preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                     strongSelf.present(alert, animated: true, completion:nil)
+                
                 } else {
                     let alert = UIAlertController(title: "Registration Complete",
                                                   message: "Registration was successful.",
                                                   preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    //alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                     strongSelf.present(alert, animated: true, completion:nil)
-                    _ = strongSelf.navigationController?.popToRootViewController(animated: true)
+                    //_ = strongSelf.navigationController?.popToRootViewController(animated: true)
+                    
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                        let presentationViewController = self?.presentingViewController
+                        strongSelf.dismiss(animated: false, completion:
+                            {
+                            presentationViewController!.dismiss(animated: true, completion: nil)
+                            })
+
+                    }))
+ 
                 }
             })
             return nil
         })
+        
     }
     
     @IBAction func onResendConfirmationCode(_ sender: AnyObject) {
@@ -84,7 +97,12 @@ class UserPoolSignUpConfirmationViewController : UIViewController {
         })
     }
     
+    func dismissController() {
+        self.dismiss(animated: true, completion: nil)
+        //_ = self.navigationController?.popToRootViewController(animated: true)
+    }
+
     @IBAction func onCancel(_ sender: AnyObject) {
-        _ = self.navigationController?.popToRootViewController(animated: true)
+        self.dismissController()
     }
 }
